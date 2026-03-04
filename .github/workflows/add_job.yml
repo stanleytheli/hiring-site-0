@@ -54,7 +54,7 @@ jobs:
                --arg desc "$DESCRIPTION" \
                --argjson reqs "$REQ_JSON" \
                --arg posted "$(date +%Y-%m-%d)" \
-               --argjson id "$FINAL_ID" \
+               --arg id "$FINAL_ID" \
                '. += [{"id": $id, "title": $title, "location": $location, "description": $desc, "requirements": $reqs, "posted_at": $posted}]' jobs.json > temp.json
             echo "status=Created new job with ID: $FINAL_ID" >> $GITHUB_OUTPUT
           else
@@ -64,8 +64,8 @@ jobs:
                --arg location "$LOCATION" \
                --arg desc "$DESCRIPTION" \
                --argjson reqs "$REQ_JSON" \
-               --argjson id "$INPUT_ID" \
-               'map(if .id == ($id | tonumber) then . + {"title": $title, "location": $location, "description": $desc, "requirements": $reqs} else . end)' jobs.json > temp.json
+               --arg id "$INPUT_ID" \
+               'map(if .id == $id then . + {"title": $title, "location": $location, "description": $desc, "requirements": $reqs} else . end)' jobs.json > temp.json
             echo "status=Updated job ID: $FINAL_ID" >> $GITHUB_OUTPUT
           fi
           
