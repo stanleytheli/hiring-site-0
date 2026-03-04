@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Details</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1><b>UNREAL Inc.</b> - Careers</h1>
+    <h3>Providing unreal jobs since 1970</h3>
+  </header>
+  <main>
+    <a href="index.html" class="back-link">← Back to all jobs</a>
+    <div id="job-detail" class="job-detail">
+      Loading...
+    </div>
+  </main>
+
+  <script>
+    async function loadJobDetail() {
+      const container = document.getElementById('job-detail');
+      const params = new URLSearchParams(window.location.search);
+      const jobId = params.get('id');
+
+      if (!jobId) {
+        container.innerHTML = '<div class="not-found">No job ID provided.</div>';
+        return;
+      }
+
+      try {
+        const response = await fetch('jobs.json');
+        const jobs = await response.json();
+        const job = jobs.find(j => j.id === jobId);
+
+        if (!job) {
+          container.innerHTML = '<div class="not-found">Job not found.</div>';
+          return;
+        }
+
+        document.title = `${job.title} - Job Details`;
+
+        container.innerHTML = `
+          <h1>${job.title}</h1>
+          <div class="company">${job.company}</div>
+          <div class="meta">
+            <span>📍 ${job.location}</span>
+            <span>💼 ${job.type}</span>
+            <span>💰 ${job.salary}</span>
+            <span>📅 Posted: ${job.posted}</span>
+          </div>
+          <h2>Description</h2>
+          <p>${job.description}</p>
+          <h2>Requirements</h2>
+          <ul>
+            ${job.requirements.map(req => `<li>${req}</li>`).join('')}
+          </ul>
+        `;
+      } catch (error) {
+        container.innerHTML = '<div class="not-found">Error loading job details.</div>';
+      }
+    }
+
+    loadJobDetail();
+  </script>
+</body>
+</html>

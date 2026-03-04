@@ -1,0 +1,131 @@
+[
+  {
+    "id": "swe-001",
+    "title": "Senior Software Engineer",
+    "company": "UNREAL Inc.",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "salary": "$150,000 - $200,000",
+    "posted": "2026-03-01",
+    "description": "We're looking for a Senior Software Engineer to join our platform team. You'll be working on distributed systems and helping scale our infrastructure.",
+    "requirements": [
+      "5+ years of experience in software development",
+      "Proficiency in Python, Go, or Java",
+      "Experience with distributed systems",
+      "Strong problem-solving skills"
+    ]
+  },
+  {
+    "id": "swe-int-001",
+    "title": "Software Engineer Intern",
+    "company": "UNREAL Inc.",
+    "location": "Vancouver, Canada",
+    "type": "Internship",
+    "salary": "$50,000 - $80,000",
+    "posted": "2026-03-01",
+    "description": "We're looking for talented and motivated students to join our AI agents team. You'll be working on AI agents that scrape LinkedIn for potential candidates.",
+    "requirements": [
+      "1+ years of experience in Python, C++, Java, or another general-purpose programming language",
+      "An interest in AI agents",
+      "Experience with data scraping and cleaning",
+      "Strong problem-solving skills"
+    ]
+  },
+  {
+    "id": "mkt-int-001",
+    "title": "Marketing Intern",
+    "company": "UNREAL Inc.",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "salary": "$40,000 - $60,000",
+    "posted": "2026-03-02",
+    "description": "We're looking for talented and motivated students to join our marketing team. You'll be working on social media marketing campaigns and helping us grow our brand.",
+    "requirements": [
+      "1+ years of experience in marketing",
+      "Experience with social media marketing, SEO, and SEM",
+      "Strong analytical skills",
+      "Excellent communication abilities"
+    ]
+  },
+
+  {
+    "id": "swe-002",
+    "title": "Frontend Developer",
+    "company": "UNREAL Inc.",
+    "location": "Remote",
+    "type": "Full-time",
+    "salary": "$100,000 - $140,000",
+    "posted": "2026-02-28",
+    "description": "Join our creative team building modern web applications. You'll work closely with designers to create beautiful, responsive user interfaces.",
+    "requirements": [
+      "3+ years of frontend development experience",
+      "Expert knowledge of React or Vue",
+      "Strong CSS and design sensibility",
+      "Experience with TypeScript"
+    ]
+  },
+  {
+    "id": "mkt-001",
+    "title": "Marketing Manager",
+    "company": "UNREAL Inc.",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "salary": "$90,000 - $120,000",
+    "posted": "2026-03-02",
+    "description": "Lead our marketing initiatives and drive brand awareness. You'll manage campaigns across multiple channels and work with cross-functional teams.",
+    "requirements": [
+      "5+ years in marketing roles",
+      "Experience with digital marketing platforms",
+      "Strong analytical skills",
+      "Excellent communication abilities"
+    ]
+  },
+  {
+    "id": "swe-003",
+    "title": "DevOps Engineer",
+    "company": "UNREAL Inc.",
+    "location": "Austin, TX",
+    "type": "Full-time",
+    "salary": "$130,000 - $170,000",
+    "posted": "2026-03-03",
+    "description": "Help us build and maintain our cloud infrastructure. You'll work on CI/CD pipelines, container orchestration, and monitoring systems.",
+    "requirements": [
+      "4+ years of DevOps experience",
+      "Strong knowledge of AWS or GCP",
+      "Experience with Kubernetes and Docker",
+      "Scripting skills in Bash or Python"
+    ]
+  },
+  {
+    "id": "hr-001",
+    "title": "HR Coordinator",
+    "company": "UNREAL Inc.",
+    "location": "Chicago, IL",
+    "type": "Full-time",
+    "salary": "$55,000 - $70,000",
+    "posted": "2026-02-25",
+    "description": "Support our HR team with recruitment, onboarding, and employee relations. Great opportunity for someone starting their HR career.",
+    "requirements": [
+      "1-2 years of HR experience",
+      "Strong organizational skills",
+      "Familiarity with HRIS systems",
+      "Bachelor's degree in HR or related field"
+    ]
+  },
+  {
+    "id": "sales-001",
+    "title": "Account Executive",
+    "company": "UNREAL Inc.",
+    "location": "Boston, MA",
+    "type": "Full-time",
+    "salary": "$80,000 - $120,000 + Commission",
+    "posted": "2026-03-01",
+    "description": "Drive revenue growth by acquiring new enterprise clients. You'll manage the full sales cycle from prospecting to closing deals.",
+    "requirements": [
+      "3+ years of B2B sales experience",
+      "Track record of meeting quotas",
+      "Excellent presentation skills",
+      "CRM experience (Salesforce preferred)"
+    ]
+  }
+]

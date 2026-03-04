@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Listings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1><b>UNREAL Inc.</b> - Careers</h1>
+    <h3>Providing unreal jobs since 1970</h3>
+  </header>
+  <main>
+    <div id="job-list" class="job-list">
+      Loading jobs...
+    </div>
+  </main>
+
+  <script>
+    async function loadJobs() {
+      const container = document.getElementById('job-list');
+      
+      try {
+        const response = await fetch('jobs.json');
+        const jobs = await response.json();
+        
+        container.innerHTML = jobs.map(job => `
+          <a href="job.html?id=${job.id}" class="job-card">
+            <h2>${job.title}</h2>
+            <div class="company">${job.company}</div>
+            <div class="meta">
+              <span>${job.location}</span>
+              <span>${job.type}</span>
+              <span>${job.salary}</span>
+            </div>
+          </a>
+        `).join('');
+      } catch (error) {
+        container.innerHTML = '<p>Error loading jobs.</p>';
+      }
+    }
+
+    loadJobs();
+  </script>
+</body>
+</html>
