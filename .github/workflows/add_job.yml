@@ -13,6 +13,18 @@ on:
         description: 'Location'
         required: false
         default: 'Remote'
+      company:
+        description: 'Company Name'
+        required: false
+        default: 'UNREAL Inc.'
+      type:
+        description: 'Job Type (Full-time, Part-time, Internship, Contract)'
+        required: false
+        default: 'Full-time'
+      salary:
+        description: 'Salary Range (e.g. $100,000 - $140,000)'
+        required: false
+        default: '$100,000 - $140,000'
       description:
         description: 'Job Description'
         required: false
@@ -35,6 +47,9 @@ jobs:
         run: |
           TITLE="${{ github.event.inputs.title || 'Software Engineer' }}"
           LOCATION="${{ github.event.inputs.location || 'Remote' }}"
+          COMPANY="${{ github.event.inputs.company || 'UNREAL Inc.' }}"
+          TYPE="${{ github.event.inputs.type || 'Full-time' }}"
+          SALARY="${{ github.event.inputs.salary }}"
           DESCRIPTION="${{ github.event.inputs.description }}"
           REQUIREMENTS="${{ github.event.inputs.requirements }}"
           INPUT_ID="${{ github.event.inputs.job_id }}"
@@ -51,21 +66,27 @@ jobs:
             FINAL_ID=$(date +%s)
             jq --arg title "$TITLE" \
                --arg location "$LOCATION" \
+               --arg company "$COMPANY" \
+               --arg type "$TYPE" \
+               --arg salary "$SALARY" \
                --arg desc "$DESCRIPTION" \
                --argjson reqs "$REQ_JSON" \
                --arg posted "$(date +%Y-%m-%d)" \
                --arg id "$FINAL_ID" \
-               '. += [{"id": $id, "title": $title, "location": $location, "description": $desc, "requirements": $reqs, "posted_at": $posted}]' jobs.json > temp.json
+               '. += [{"id": $id, "title": $title, "company": $company, "location": $location, "type": $type, "salary": $salary, "posted": $posted, "description": $desc, "requirements": $reqs}]' jobs.json > temp.json
             echo "status=Created new job with ID: $FINAL_ID" >> $GITHUB_OUTPUT
           else
             # EDIT JOB: Update existing ID
             FINAL_ID=$INPUT_ID
             jq --arg title "$TITLE" \
                --arg location "$LOCATION" \
+               --arg company "$COMPANY" \
+               --arg type "$TYPE" \
+               --arg salary "$SALARY" \
                --arg desc "$DESCRIPTION" \
                --argjson reqs "$REQ_JSON" \
                --arg id "$INPUT_ID" \
-               'map(if .id == $id then . + {"title": $title, "location": $location, "description": $desc, "requirements": $reqs} else . end)' jobs.json > temp.json
+               'map(if .id == $id then . + {"title": $title, "company": $company, "location": $location, "type": $type, "salary": $salary, "description": $desc, "requirements": $reqs} else . end)' jobs.json > temp.json
             echo "status=Updated job ID: $FINAL_ID" >> $GITHUB_OUTPUT
           fi
           

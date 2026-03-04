@@ -17,8 +17,7 @@ jobs:
       - name: Filter out the Job ID
         run: |
           # Use jq to select all objects EXCEPT the one with the matching ID
-          # We convert the input to a number to match the numeric timestamp ID
-          jq 'del(.[] | select(.id == (${{ github.event.inputs.job_id }} | tonumber)))' jobs.json > temp.json && mv temp.json jobs.json
+          jq --arg id "${{ github.event.inputs.job_id }}" 'del(.[] | select(.id == $id))' jobs.json > temp.json && mv temp.json jobs.json
 
       - name: Commit and Push
         run: |
