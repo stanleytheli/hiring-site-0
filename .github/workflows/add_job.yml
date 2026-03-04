@@ -13,6 +13,14 @@ on:
         description: 'Location'
         required: false
         default: 'Remote'
+      description:
+        description: 'Job Description'
+        required: false
+        default: 'We are looking for a talented and motivated employee to join our team.'
+      requirements:
+        description: 'Requirements (comma-separated list)'
+        required: false
+        default: '5+ years of experience'
 
 jobs:
   upsert-job:
@@ -27,17 +35,37 @@ jobs:
         run: |
           TITLE="${{ github.event.inputs.title || 'Software Engineer' }}"
           LOCATION="${{ github.event.inputs.location || 'Remote' }}"
+          DESCRIPTION="${{ github.event.inputs.description }}"
+          REQUIREMENTS="${{ github.event.inputs.requirements }}"
           INPUT_ID="${{ github.event.inputs.job_id }}"
+          
+          # Convert comma-separated requirements to JSON array
+          if [ -n "$REQUIREMENTS" ]; then
+            REQ_JSON=$(echo "$REQUIREMENTS" | tr ',' '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | jq -R . | jq -s .)
+          else
+            REQ_JSON="[]"
+          fi
           
           if [ -z "$INPUT_ID" ]; then
             # NEW JOB: Use current timestamp as ID
             FINAL_ID=$(date +%s)
-            jq ". += [{\"id\": $FINAL_ID, \"title\": \"$TITLE\", \"location\": \"$LOCATION\", \"posted_at\": \"$(date +%Y-%m-%d)\"}]" jobs.json > temp.json
+            jq --arg title "$TITLE" \
+               --arg location "$LOCATION" \
+               --arg desc "$DESCRIPTION" \
+               --argjson reqs "$REQ_JSON" \
+               --arg posted "$(date +%Y-%m-%d)" \
+               --argjson id "$FINAL_ID" \
+               '. += [{"id": $id, "title": $title, "location": $location, "description": $desc, "requirements": $reqs, "posted_at": $posted}]' jobs.json > temp.json
             echo "status=Created new job with ID: $FINAL_ID" >> $GITHUB_OUTPUT
           else
             # EDIT JOB: Update existing ID
             FINAL_ID=$INPUT_ID
-            jq "map(if .id == ($INPUT_ID | tonumber) then . + {\"title\": \"$TITLE\", \"location\": \"$LOCATION\"} else . end)" jobs.json > temp.json
+            jq --arg title "$TITLE" \
+               --arg location "$LOCATION" \
+               --arg desc "$DESCRIPTION" \
+               --argjson reqs "$REQ_JSON" \
+               --argjson id "$INPUT_ID" \
+               'map(if .id == ($id | tonumber) then . + {"title": $title, "location": $location, "description": $desc, "requirements": $reqs} else . end)' jobs.json > temp.json
             echo "status=Updated job ID: $FINAL_ID" >> $GITHUB_OUTPUT
           fi
           
