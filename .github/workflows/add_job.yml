@@ -1,31 +1,60 @@
-name: Add New Job
+name: Add or Edit Job
 on:
   workflow_dispatch:
     inputs:
+      job_id:
+        description: 'Leave empty for NEW job, or enter ID to EDIT'
+        required: false
       title:
-        description: 'Job Title (e.g. AI Engineer)'
-        required: true
+        description: 'Job Title'
+        required: false
+        default: 'Software Engineer'
       location:
         description: 'Location'
+        required: false
         default: 'Remote'
 
 jobs:
-  update-json:
+  upsert-job:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
       
-      - name: Append Job to JSON
+      - name: Process Job Data
+        id: process
         run: |
-          # Use jq to add the entry. We use 'now' for a unique ID.
-          jq '. += [{"id": now, "title": "${{ github.event.inputs.title }}", "location": "${{ github.event.inputs.location }}", "posted_at": "'$(date +%Y-%m-%d)'"}]' jobs.json > temp.json && mv temp.json jobs.json
+          TITLE="${{ github.event.inputs.title || 'Software Engineer' }}"
+          LOCATION="${{ github.event.inputs.location || 'Remote' }}"
+          INPUT_ID="${{ github.event.inputs.job_id }}"
+          
+          if [ -z "$INPUT_ID" ]; then
+            # NEW JOB: Use current timestamp as ID
+            FINAL_ID=$(date +%s)
+            jq ". += [{\"id\": $FINAL_ID, \"title\": \"$TITLE\", \"location\": \"$LOCATION\", \"posted_at\": \"$(date +%Y-%m-%d)\"}]" jobs.json > temp.json
+            echo "status=Created new job with ID: $FINAL_ID" >> $GITHUB_OUTPUT
+          else
+            # EDIT JOB: Update existing ID
+            FINAL_ID=$INPUT_ID
+            jq "map(if .id == ($INPUT_ID | tonumber) then . + {\"title\": \"$TITLE\", \"location\": \"$LOCATION\"} else . end)" jobs.json > temp.json
+            echo "status=Updated job ID: $FINAL_ID" >> $GITHUB_OUTPUT
+          fi
+          
+          mv temp.json jobs.json
+          echo "final_id=$FINAL_ID" >> $GITHUB_OUTPUT
 
       - name: Commit and Push
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           git add jobs.json
-          git commit -m "Added job: ${{ github.event.inputs.title }}"
+          git commit -m "Update Job Board (ID: ${{ steps.process.outputs.final_id }})"
           git push
+
+      - name: Output Summary
+        run: |
+          echo "### Job Operation Successful! 🚀" >> $GITHUB_STEP_SUMMARY
+          echo "- **Action:** ${{ steps.process.outputs.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Job ID:** \`${{ steps.process.outputs.final_id }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "Use this ID if you need to edit or delete this role later." >> $GITHUB_STEP_SUMMARY
