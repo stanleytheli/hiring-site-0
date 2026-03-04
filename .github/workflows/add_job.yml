@@ -44,15 +44,23 @@ jobs:
       
       - name: Process Job Data
         id: process
+        env:
+          INPUT_TITLE: ${{ github.event.inputs.title }}
+          INPUT_LOCATION: ${{ github.event.inputs.location }}
+          INPUT_COMPANY: ${{ github.event.inputs.company }}
+          INPUT_TYPE: ${{ github.event.inputs.type }}
+          INPUT_SALARY: ${{ github.event.inputs.salary }}
+          INPUT_DESCRIPTION: ${{ github.event.inputs.description }}
+          INPUT_REQUIREMENTS: ${{ github.event.inputs.requirements }}
+          INPUT_ID: ${{ github.event.inputs.job_id }}
         run: |
-          TITLE="${{ github.event.inputs.title || 'Software Engineer' }}"
-          LOCATION="${{ github.event.inputs.location || 'Remote' }}"
-          COMPANY="${{ github.event.inputs.company || 'UNREAL Inc.' }}"
-          TYPE="${{ github.event.inputs.type || 'Full-time' }}"
-          SALARY="${{ github.event.inputs.salary }}"
-          DESCRIPTION="${{ github.event.inputs.description }}"
-          REQUIREMENTS="${{ github.event.inputs.requirements }}"
-          INPUT_ID="${{ github.event.inputs.job_id }}"
+          TITLE="${INPUT_TITLE:-Software Engineer}"
+          LOCATION="${INPUT_LOCATION:-Remote}"
+          COMPANY="${INPUT_COMPANY:-UNREAL Inc.}"
+          TYPE="${INPUT_TYPE:-Full-time}"
+          SALARY="${INPUT_SALARY}"
+          DESCRIPTION="${INPUT_DESCRIPTION}"
+          REQUIREMENTS="${INPUT_REQUIREMENTS}"
           
           # Convert comma-separated requirements to JSON array
           if [ -n "$REQUIREMENTS" ]; then
