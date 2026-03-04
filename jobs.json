@@ -126,17 +126,5 @@
       "Excellent presentation skills",
       "CRM experience (Salesforce preferred)"
     ]
-  },
-  {
-    "id": 1772604915,
-    "title": "Software Engineer Intern - Core Backend",
-    "location": "New York City, NY",
-    "description": "We are looking for a talented and motivated software engineer intern to join our core backend team. This will be a highly demanding role.",
-    "requirements": [
-      "1+ previous internships",
-      "Proficiency in python and django/DRF",
-      "Experience coding with AI tools"
-    ],
-    "posted_at": "2026-03-04"
   }
 ]
