@@ -1,0 +1,31 @@
+name: Add New Job
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: 'Job Title (e.g. AI Engineer)'
+        required: true
+      location:
+        description: 'Location'
+        default: 'Remote'
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Append Job to JSON
+        run: |
+          # Use jq to add the entry. We use 'now' for a unique ID.
+          jq '. += [{"id": now, "title": "${{ github.event.inputs.title }}", "location": "${{ github.event.inputs.location }}", "posted_at": "'$(date +%Y-%m-%d)'"}]' jobs.json > temp.json && mv temp.json jobs.json
+
+      - name: Commit and Push
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add jobs.json
+          git commit -m "Added job: ${{ github.event.inputs.title }}"
+          git push
