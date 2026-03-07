@@ -3,66 +3,500 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Details</title>
+  <title>Job Details | UNREAL Inc.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1><b>UNREAL Inc.</b> - Careers</h1>
-    <h3>Providing unreal jobs since 1970</h3>
-  </header>
-  <main>
-    <a href="index.html" class="back-link">← Back to all jobs</a>
-    <div id="job-detail" class="job-detail">
-      Loading...
+  <div class="grain-overlay"></div>
+  
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">UN</span>
+        <span class="logo-text">UNREAL Inc.</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#positions">Positions</a>
+        <a href="https://unrealinc.example.com">Company</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="job-page">
+    <div class="container">
+      <a href="index.html#positions" class="back-link">← Back to all positions</a>
+
+      <!-- swe-001: Senior Software Engineer -->
+      <article class="job-detail" data-id="swe-001">
+        <header class="job-header">
+          <div class="job-header-top">
+            <span class="job-dept-badge">Engineering</span>
+            <span class="job-date">Posted Mar 1, 2026</span>
+          </div>
+          <h1>Senior Software Engineer</h1>
+          <div class="job-meta-bar">
+            <div class="meta-item">
+              <span class="meta-label">Location</span>
+              <span class="meta-value">San Francisco, CA</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Type</span>
+              <span class="meta-value">Full-time</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Salary</span>
+              <span class="meta-value">$150,000 – $200,000</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="job-content">
+          <section>
+            <h2>About the Role</h2>
+            <p>We're looking for a Senior Software Engineer to join our platform team. You'll be working on distributed systems and helping scale our infrastructure to support millions of users worldwide.</p>
+          </section>
+
+          <section>
+            <h2>Requirements</h2>
+            <ul>
+              <li>5+ years of experience in software development</li>
+              <li>Proficiency in Python, Go, or Java</li>
+              <li>Experience with distributed systems</li>
+              <li>Strong problem-solving skills</li>
+            </ul>
+          </section>
+
+          <div class="job-apply-box">
+            <a href="mailto:careers@unrealinc.example.com?subject=Application: Senior Software Engineer (swe-001)" class="btn-apply">Apply for this role</a>
+            <p>Or email us at <a href="mailto:careers@unrealinc.example.com">careers@unrealinc.example.com</a></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- swe-002: Frontend Developer -->
+      <article class="job-detail" data-id="swe-002">
+        <header class="job-header">
+          <div class="job-header-top">
+            <span class="job-dept-badge">Engineering</span>
+            <span class="job-date">Posted Feb 28, 2026</span>
+          </div>
+          <h1>Frontend Developer</h1>
+          <div class="job-meta-bar">
+            <div class="meta-item">
+              <span class="meta-label">Location</span>
+              <span class="meta-value">Remote</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Type</span>
+              <span class="meta-value">Full-time</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Salary</span>
+              <span class="meta-value">$100,000 – $140,000</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="job-content">
+          <section>
+            <h2>About the Role</h2>
+            <p>Join our creative team building modern web applications. You'll work closely with designers to create beautiful, responsive user interfaces that delight our users.</p>
+          </section>
+
+          <section>
+            <h2>Requirements</h2>
+            <ul>
+              <li>3+ years of frontend development experience</li>
+              <li>Expert knowledge of React or Vue</li>
+              <li>Strong CSS and design sensibility</li>
+              <li>Experience with TypeScript</li>
+            </ul>
+          </section>
+
+          <div class="job-apply-box">
+            <a href="mailto:careers@unrealinc.example.com?subject=Application: Frontend Developer (swe-002)" class="btn-apply">Apply for this role</a>
+            <p>Or email us at <a href="mailto:careers@unrealinc.example.com">careers@unrealinc.example.com</a></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- swe-003: DevOps Engineer -->
+      <article class="job-detail" data-id="swe-003">
+        <header class="job-header">
+          <div class="job-header-top">
+            <span class="job-dept-badge">Engineering</span>
+            <span class="job-date">Posted Mar 3, 2026</span>
+          </div>
+          <h1>DevOps Engineer</h1>
+          <div class="job-meta-bar">
+            <div class="meta-item">
+              <span class="meta-label">Location</span>
+              <span class="meta-value">Austin, TX</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Type</span>
+              <span class="meta-value">Full-time</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Salary</span>
+              <span class="meta-value">$130,000 – $170,000</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="job-content">
+          <section>
+            <h2>About the Role</h2>
+            <p>Help us build and maintain our cloud infrastructure. You'll work on CI/CD pipelines, container orchestration, and monitoring systems that keep our platform running smoothly.</p>
+          </section>
+
+          <section>
+            <h2>Requirements</h2>
+            <ul>
+              <li>4+ years of DevOps experience</li>
+              <li>Strong knowledge of AWS or GCP</li>
+              <li>Experience with Kubernetes and Docker</li>
+              <li>Scripting skills in Bash or Python</li>
+            </ul>
+          </section>
+
+          <div class="job-apply-box">
+            <a href="mailto:careers@unrealinc.example.com?subject=Application: DevOps Engineer (swe-003)" class="btn-apply">Apply for this role</a>
+            <p>Or email us at <a href="mailto:careers@unrealinc.example.com">careers@unrealinc.example.com</a></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- swe-int-001: Software Engineer Intern -->
+      <article class="job-detail" data-id="swe-int-001">
+        <header class="job-header">
+          <div class="job-header-top">
+            <span class="job-dept-badge">Engineering</span>
+            <span class="job-date">Posted Mar 1, 2026</span>
+          </div>
+          <h1>Software Engineer Intern</h1>
+          <div class="job-meta-bar">
+            <div class="meta-item">
+              <span class="meta-label">Location</span>
+              <span class="meta-value">Vancouver, Canada</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Type</span>
+              <span class="meta-value">Internship</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Salary</span>
+              <span class="meta-value">$50,000 – $80,000</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="job-content">
+          <section>
+            <h2>About the Role</h2>
+            <p>We're looking for talented and motivated students to join our AI agents team. You'll be working on AI agents that scrape LinkedIn for potential candidates and help automate our recruiting pipeline.</p>
+          </section>
+
+          <section>
+            <h2>Requirements</h2>
+            <ul>
+              <li>1+ years of experience in Python, C++, Java, or another general-purpose programming language</li>
+              <li>An interest in AI agents</li>
+              <li>Experience with data scraping and cleaning</li>
+              <li>Strong problem-solving skills</li>
+            </ul>
+          </section>
+
+          <div class="job-apply-box">
+            <a href="mailto:careers@unrealinc.example.com?subject=Application: Software Engineer Intern (swe-int-001)" class="btn-apply">Apply for this role</a>
+            <p>Or email us at <a href="mailto:careers@unrealinc.example.com">careers@unrealinc.example.com</a></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- swe-int-002: Software Engineer Intern - Core Backend -->
+      <article class="job-detail" data-id="swe-int-002">
+        <header class="job-header">
+          <div class="job-header-top">
+            <span class="job-dept-badge">Engineering</span>
+            <span class="job-date">Posted Mar 4, 2026</span>
+          </div>
+          <h1>Software Engineer Intern - Core Backend</h1>
+          <div class="job-meta-bar">
+            <div class="meta-item">
+              <span class="meta-label">Location</span>
+              <span class="meta-value">New York, NY</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Type</span>
+              <span class="meta-value">Internship</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Salary</span>
+              <span class="meta-value">$100,000 – $140,000</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="job-content">
+          <section>
+            <h2>About the Role</h2>
+            <p>We are looking for a talented and motivated software engineer intern to join our core backend team. This will be a highly demanding role where you'll work on critical infrastructure.</p>
+          </section>
+
+          <section>
+            <h2>Requirements</h2>
+            <ul>
+              <li>1+ previous internships</li>
+              <li>Proficiency in Python and Django/DRF</li>
+              <li>Experience coding with AI tools</li>
+            </ul>
+          </section>
+
+          <div class="job-apply-box">
+            <a href="mailto:careers@unrealinc.example.com?subject=Application: SWE Intern Core Backend (swe-int-002)" class="btn-apply">Apply for this role</a>
+            <p>Or email us at <a href="mailto:careers@unrealinc.example.com">careers@unrealinc.example.com</a></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- mkt-001: Marketing Manager -->
+      <article class="job-detail" data-id="mkt-001">
+        <header class="job-header">
+          <div class="job-header-top">
+            <span class="job-dept-badge">Marketing</span>
+            <span class="job-date">Posted Mar 2, 2026</span>
+          </div>
+          <h1>Marketing Manager</h1>
+          <div class="job-meta-bar">
+            <div class="meta-item">
+              <span class="meta-label">Location</span>
+              <span class="meta-value">New York, NY</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Type</span>
+              <span class="meta-value">Full-time</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Salary</span>
+              <span class="meta-value">$90,000 – $120,000</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="job-content">
+          <section>
+            <h2>About the Role</h2>
+            <p>Lead our marketing initiatives and drive brand awareness. You'll manage campaigns across multiple channels and work with cross-functional teams to achieve growth targets.</p>
+          </section>
+
+          <section>
+            <h2>Requirements</h2>
+            <ul>
+              <li>5+ years in marketing roles</li>
+              <li>Experience with digital marketing platforms</li>
+              <li>Strong analytical skills</li>
+              <li>Excellent communication abilities</li>
+            </ul>
+          </section>
+
+          <div class="job-apply-box">
+            <a href="mailto:careers@unrealinc.example.com?subject=Application: Marketing Manager (mkt-001)" class="btn-apply">Apply for this role</a>
+            <p>Or email us at <a href="mailto:careers@unrealinc.example.com">careers@unrealinc.example.com</a></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- mkt-int-001: Marketing Intern -->
+      <article class="job-detail" data-id="mkt-int-001">
+        <header class="job-header">
+          <div class="job-header-top">
+            <span class="job-dept-badge">Marketing</span>
+            <span class="job-date">Posted Mar 2, 2026</span>
+          </div>
+          <h1>Marketing Intern</h1>
+          <div class="job-meta-bar">
+            <div class="meta-item">
+              <span class="meta-label">Location</span>
+              <span class="meta-value">San Francisco, CA</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Type</span>
+              <span class="meta-value">Internship</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Salary</span>
+              <span class="meta-value">$40,000 – $60,000</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="job-content">
+          <section>
+            <h2>About the Role</h2>
+            <p>We're looking for talented and motivated students to join our marketing team. You'll be working on social media marketing campaigns and helping us grow our brand presence.</p>
+          </section>
+
+          <section>
+            <h2>Requirements</h2>
+            <ul>
+              <li>1+ years of experience in marketing</li>
+              <li>Experience with social media marketing, SEO, and SEM</li>
+              <li>Strong analytical skills</li>
+              <li>Excellent communication abilities</li>
+            </ul>
+          </section>
+
+          <div class="job-apply-box">
+            <a href="mailto:careers@unrealinc.example.com?subject=Application: Marketing Intern (mkt-int-001)" class="btn-apply">Apply for this role</a>
+            <p>Or email us at <a href="mailto:careers@unrealinc.example.com">careers@unrealinc.example.com</a></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- sales-001: Account Executive -->
+      <article class="job-detail" data-id="sales-001">
+        <header class="job-header">
+          <div class="job-header-top">
+            <span class="job-dept-badge">Sales</span>
+            <span class="job-date">Posted Mar 1, 2026</span>
+          </div>
+          <h1>Account Executive</h1>
+          <div class="job-meta-bar">
+            <div class="meta-item">
+              <span class="meta-label">Location</span>
+              <span class="meta-value">Boston, MA</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Type</span>
+              <span class="meta-value">Full-time</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Salary</span>
+              <span class="meta-value">$80,000 – $120,000 + Commission</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="job-content">
+          <section>
+            <h2>About the Role</h2>
+            <p>Drive revenue growth by acquiring new enterprise clients. You'll manage the full sales cycle from prospecting to closing deals with Fortune 500 companies.</p>
+          </section>
+
+          <section>
+            <h2>Requirements</h2>
+            <ul>
+              <li>3+ years of B2B sales experience</li>
+              <li>Track record of meeting quotas</li>
+              <li>Excellent presentation skills</li>
+              <li>CRM experience (Salesforce preferred)</li>
+            </ul>
+          </section>
+
+          <div class="job-apply-box">
+            <a href="mailto:careers@unrealinc.example.com?subject=Application: Account Executive (sales-001)" class="btn-apply">Apply for this role</a>
+            <p>Or email us at <a href="mailto:careers@unrealinc.example.com">careers@unrealinc.example.com</a></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- hr-001: HR Coordinator -->
+      <article class="job-detail" data-id="hr-001">
+        <header class="job-header">
+          <div class="job-header-top">
+            <span class="job-dept-badge">People</span>
+            <span class="job-date">Posted Feb 25, 2026</span>
+          </div>
+          <h1>HR Coordinator</h1>
+          <div class="job-meta-bar">
+            <div class="meta-item">
+              <span class="meta-label">Location</span>
+              <span class="meta-value">Chicago, IL</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Type</span>
+              <span class="meta-value">Full-time</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Salary</span>
+              <span class="meta-value">$55,000 – $70,000</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="job-content">
+          <section>
+            <h2>About the Role</h2>
+            <p>Support our HR team with recruitment, onboarding, and employee relations. Great opportunity for someone starting their HR career and looking to grow.</p>
+          </section>
+
+          <section>
+            <h2>Requirements</h2>
+            <ul>
+              <li>1-2 years of HR experience</li>
+              <li>Strong organizational skills</li>
+              <li>Familiarity with HRIS systems</li>
+              <li>Bachelor's degree in HR or related field</li>
+            </ul>
+          </section>
+
+          <div class="job-apply-box">
+            <a href="mailto:careers@unrealinc.example.com?subject=Application: HR Coordinator (hr-001)" class="btn-apply">Apply for this role</a>
+            <p>Or email us at <a href="mailto:careers@unrealinc.example.com">careers@unrealinc.example.com</a></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Not Found -->
+      <article class="job-detail job-not-found" data-id="not-found">
+        <h1>Job Not Found</h1>
+        <p>Sorry, we couldn't find the position you're looking for. It may have been filled or removed.</p>
+        <a href="index.html#positions" class="btn-apply">View all open positions</a>
+      </article>
     </div>
   </main>
 
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-mark">UN</span>
+          <span>UNREAL Inc.</span>
+        </div>
+        <p>Providing unreal products since 1970.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+      <p class="footer-copy">© 2026 UNREAL Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
   <script>
-    async function loadJobDetail() {
-      const container = document.getElementById('job-detail');
-      const params = new URLSearchParams(window.location.search);
-      const jobId = params.get('id');
+    // Show the correct job based on URL parameter
+    const params = new URLSearchParams(window.location.search);
+    const jobId = params.get('id');
+    
+    // Hide all job details
+    document.querySelectorAll('.job-detail').forEach(el => {
+      el.style.display = 'none';
+    });
 
-      if (!jobId) {
-        container.innerHTML = '<div class="not-found">No job ID provided.</div>';
-        return;
-      }
-
-      try {
-        const response = await fetch('jobs.json');
-        const jobs = await response.json();
-        const job = jobs.find(j => j.id === jobId);
-
-        if (!job) {
-          container.innerHTML = '<div class="not-found">Job not found.</div>';
-          return;
-        }
-
-        document.title = `${job.title} - Job Details`;
-
-        container.innerHTML = `
-          <h1>${job.title}</h1>
-          <div class="company">${job.company}</div>
-          <div class="meta">
-            <span>📍 ${job.location}</span>
-            <span>💼 ${job.type}</span>
-            <span>💰 ${job.salary}</span>
-            <span>📅 Posted: ${job.posted}</span>
-          </div>
-          <h2>Description</h2>
-          <p>${job.description}</p>
-          <h2>Requirements</h2>
-          <ul>
-            ${job.requirements.map(req => `<li>${req}</li>`).join('')}
-          </ul>
-        `;
-      } catch (error) {
-        container.innerHTML = '<div class="not-found">Error loading job details.</div>';
-      }
+    // Show the matching job or the not-found message
+    const targetJob = document.querySelector(`.job-detail[data-id="${jobId}"]`);
+    if (targetJob) {
+      targetJob.style.display = 'block';
+      document.title = `${targetJob.querySelector('h1').textContent} | UNREAL Inc.`;
+    } else {
+      document.querySelector('.job-not-found').style.display = 'block';
     }
-
-    loadJobDetail();
   </script>
 </body>
 </html>
